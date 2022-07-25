@@ -1,4 +1,4 @@
-package com.reactor.demo.springreactordemo;
+package com.reactor.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
