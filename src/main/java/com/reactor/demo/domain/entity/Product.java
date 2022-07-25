@@ -1,17 +1,17 @@
 package com.reactor.demo.domain.entity;
 
-import java.math.BigDecimal;
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.reactor.demo.base.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.reactor.demo.base.BaseEntity;
+import java.math.BigDecimal;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author system
@@ -29,13 +29,11 @@ public class Product extends BaseEntity {
 
     private BigDecimal price;
 
-    @TableField("productName")
-    private String productname;
+    private String productName;
 
-    @TableField("productCode")
-    private String productcode;
+    private String productCode;
 
+    @TableField("`desc`")
     private String desc;
-
 
 }
