@@ -1,11 +1,8 @@
 package com.reactor.demo.controller;
 
 
-import com.reactor.demo.base.BaseController;
 import com.reactor.demo.domain.entity.Product;
 import com.reactor.demo.domain.response.Result;
-import com.reactor.demo.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,15 +19,10 @@ import reactor.core.publisher.Mono;
  */
 @RestController
 @RequestMapping("/product")
-public class ProductController extends BaseController {
-    @Autowired
-    private ProductService productService;
+public class ProductController {
 
     @PostMapping("/add")
     public Mono<Result<Product>> addProduct(@RequestBody Product product) {
-        productService.save(product);
         return Mono.just(Result.success());
     }
-
-
 }

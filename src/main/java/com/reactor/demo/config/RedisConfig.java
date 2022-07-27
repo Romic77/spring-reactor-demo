@@ -1,7 +1,6 @@
 package com.reactor.demo.config;
 
 import com.reactor.demo.util.RedisUtil;
-import java.time.Duration;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -16,6 +15,8 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
+
+import java.time.Duration;
 
 @Configuration
 @AutoConfigureBefore(RedisAutoConfiguration.class)
