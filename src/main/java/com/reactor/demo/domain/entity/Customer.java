@@ -6,8 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 
 /**
  * @author romic
@@ -18,10 +18,9 @@ import javax.persistence.NamedQuery;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@NamedQuery(name = "Customer.withAddressNamedQuery", query = "select c FROM Customer c where c.address = ?1")
 public class Customer {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;

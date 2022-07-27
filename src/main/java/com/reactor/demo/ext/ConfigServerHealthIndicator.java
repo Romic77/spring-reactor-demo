@@ -1,8 +1,5 @@
 package com.reactor.demo.ext;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.stereotype.Component;
@@ -16,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class ConfigServerHealthIndicator implements HealthIndicator {
     @Override
     public Health health() {
-        try {
+       /* try {
             final HttpURLConnection conn = (HttpURLConnection) new URL("http://localhost:8888/configservice/default").openConnection();
             int statusCode = conn.getResponseCode();
             if (statusCode >= 200 && statusCode < 300) {
@@ -26,6 +23,7 @@ public class ConfigServerHealthIndicator implements HealthIndicator {
         } catch (IOException e) {
             e.printStackTrace();
             return Health.down(e).build();
-        }
+        }*/
+        return Health.up().build();
     }
 }
