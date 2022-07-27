@@ -16,14 +16,9 @@ import java.util.List;
 @Service
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
     @Query("select c from Customer c where  c.address = :address")
-    List<Customer> findAddress(@Param("address") String address);
-
-    Customer findByFirstNameAndAddress(String firstName, String address);
+    public List<Customer> findAddress(@Param("address") String address);
 
     @Query("select c from Customer c where c.firstName= :firstName and c.address = :address")
-    Customer withFirstNameAndAddressQuery(@Param("firstName") String firstName, @Param("address") String address);
-
-    @Query("select c FROM Customer c where c.address = ?1")
-    List<Customer> withAddressNamedQuery(String address);
+    public Customer withFirstNameAndAddressQuery(@Param("firstName") String firstName, @Param("address") String address);
 
 }
