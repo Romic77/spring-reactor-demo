@@ -1,4 +1,4 @@
-package com.reactor.demo.dao;
+package com.reactor.demo.repository;
 
 import com.reactor.demo.domain.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;

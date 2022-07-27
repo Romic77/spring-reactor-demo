@@ -1,7 +1,7 @@
 package com.reactor.demo.controller;
 
-import com.reactor.demo.dao.CustomerRepository;
 import com.reactor.demo.domain.entity.Customer;
+import com.reactor.demo.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
