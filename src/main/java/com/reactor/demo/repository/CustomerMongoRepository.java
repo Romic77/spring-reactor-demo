@@ -1,6 +1,6 @@
 package com.reactor.demo.repository;
 
-import com.reactor.demo.domain.entity.Customer;
+import com.reactor.demo.domain.entity.CustomerMongo;
 import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
@@ -8,10 +8,10 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * @author romic
  * @date 2022/7/29
  */
-public interface CustomerMongoRepository extends MongoRepository<Customer, String> {
-    List<Customer> findByFirstName(String firstName);
+public interface CustomerMongoRepository extends MongoRepository<CustomerMongo, String> {
+    List<CustomerMongo> findByFirstName(String firstName);
 
 
-    Customer findById(Long id);
+    CustomerMongo findById(Long id);
 
 }

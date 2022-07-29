@@ -1,6 +1,6 @@
 package com.reactor.demo.controller;
 
-import com.reactor.demo.domain.entity.Customer;
+import com.reactor.demo.domain.entity.CustomerMongo;
 import com.reactor.demo.repository.CustomerMongoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,12 +18,12 @@ public class CustomerMongoController {
     private CustomerMongoRepository customerMongoRepository;
 
     @PostMapping("/save")
-    public Customer save() {
-        Customer customer = new Customer();
-        customer.setFirstName("chen");
-        customer.setLastName("qi");
-        customer.setAge(30);
+    public CustomerMongo save() {
+        CustomerMongo customerMongo = new CustomerMongo();
+        customerMongo.setFirstName("chen");
+        customerMongo.setLastName("qi");
+        customerMongo.setAge(30);
 
-        return customerMongoRepository.save(customer);
+        return customerMongoRepository.save(customerMongo);
     }
 }
