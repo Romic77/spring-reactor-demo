@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author romic
@@ -26,7 +27,7 @@ public class CustomerMongoController {
         customerMongo.setFirstName("chen");
         customerMongo.setLastName("qi");
         customerMongo.setAge(30);
-
+        customerMongo.setId(UUID.randomUUID().toString());
         return customerMongoRepository.save(customerMongo);
     }
 
