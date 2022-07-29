@@ -56,6 +56,8 @@ spring:
         min-idle: 10 #连接池中的最小空闲连接
         max-active: 10 #连接池最大连接数（使用负值表示没有限制）
         max-wait: -1 #连接池最大阻塞等待时间（使用负值表示没有限制）
+  main:
+    allow-bean-definition-overriding: true
 #    cluster:
 #      nodes: 10.4.5.139:47001,10.4.5.139:47002,10.4.5.139:47003,10.4.5.104:47004,10.4.5.104:47005,10.4.5.104:47006
 #      max-redirects: 3
