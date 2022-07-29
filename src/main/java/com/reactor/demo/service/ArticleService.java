@@ -24,7 +24,7 @@ public class ArticleService {
         return articleReactiveMongoRepository.findById(id);
     }
 
-    public Flux<Article> findAll(String id) {
+    public Flux<Article> findAll() {
         return articleReactiveMongoRepository.findAll();
     }
 
