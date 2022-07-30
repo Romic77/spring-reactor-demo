@@ -34,14 +34,14 @@ public class RedisConfig {
 
 
     @Bean("reactiveRedisTemplate")
-    public ReactiveRedisTemplate<String, Object> reactiveRedisTemplate(ReactiveRedisConnectionFactory connectionFactory) {
+    public ReactiveRedisTemplate<String, Object> reactiveRedisTemplate(ReactiveRedisConnectionFactory connectionFactory, RedisSerializer<Object> redisSerializer) {
         RedisSerializationContext.RedisSerializationContextBuilder<Object, Object> builder = RedisSerializationContext.newSerializationContext();
         RedisKeySerializer redisKeySerializer = new RedisKeySerializer();
         builder.key(redisKeySerializer);
         builder.hashKey(redisKeySerializer);
-        builder.value(redisKeySerializer);
-        builder.hashValue(redisKeySerializer);
 
+        builder.value(redisSerializer);
+        builder.hashValue(redisSerializer);
 
         RedisSerializationContext serializationContext = builder.build();
         return new ReactiveRedisTemplate<String, Object>(connectionFactory, serializationContext);

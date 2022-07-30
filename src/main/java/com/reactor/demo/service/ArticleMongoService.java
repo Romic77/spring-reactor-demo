@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
 import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.startsWith;
 
 @Service
-public class ArticleService {
+public class ArticleMongoService {
     @Autowired
     private ArticleReactiveMongoRepository articleReactiveMongoRepository;
 

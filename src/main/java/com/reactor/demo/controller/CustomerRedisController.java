@@ -1,7 +1,7 @@
 package com.reactor.demo.controller;
 
 import com.reactor.demo.domain.entity.Article;
-import com.reactor.demo.service.ArticleMongoService;
+import com.reactor.demo.service.ReactiveRedisArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,18 +16,18 @@ import reactor.core.publisher.Mono;
  * @date 2022/7/29
  */
 @RestController
-@RequestMapping("/mongo")
-public class CustomerMongoController {
+@RequestMapping("/redis")
+public class CustomerRedisController {
     @Autowired
-    private ArticleMongoService articleService;
+    private ReactiveRedisArticleService reactiveRedisArticleService;
 
     @PostMapping("/save")
-    public Mono<Article> save(@RequestBody Article article) {
-        return articleService.save(article);
+    public Mono<Boolean> save(@RequestBody Article article) {
+        return reactiveRedisArticleService.save(article);
     }
 
     @GetMapping("/list")
     public Flux<Article> list() {
-        return articleService.findAll();
+        return reactiveRedisArticleService.findAll();
     }
 }
