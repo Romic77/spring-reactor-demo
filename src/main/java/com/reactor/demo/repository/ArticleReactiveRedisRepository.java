@@ -16,7 +16,7 @@ public interface ArticleReactiveRedisRepository {
 
     Mono<Boolean> deleteById(String id);
 
-    Mono<Article> findArticleById(String articleId);
+    Mono<Object> findArticleById(String articleId);
 
-    Flux<Article> findAll();
+    Flux<Object> findAll();
 }

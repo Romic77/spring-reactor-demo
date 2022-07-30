@@ -19,7 +19,7 @@ public class InitMongoDatabase implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         reactiveMongoTemplate.dropCollection(Article.class);
-        reactiveMongoTemplate.save(new Article(UUID.randomUUID().toString(), "title1", "content1", "author1"));
+        reactiveMongoTemplate.insert(new Article(UUID.randomUUID().toString(), "title1", "content1", "author1"));
         reactiveMongoTemplate.insert(new Article(UUID.randomUUID().toString(), "title2", "content2", "author2"));
 
         reactiveMongoTemplate.findAll(Article.class).toStream().forEach(acticle -> {

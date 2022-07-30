@@ -36,13 +36,13 @@ public class ReactiveRedisArticleService implements ArticleReactiveRedisReposito
     }
 
     @Override
-    public Mono<Article> findArticleById(String id) {
-        return reactiveRedisTemplate.opsForValue().get(REDIS_KEY + id).map(object -> (Article) object);
+    public Mono<Object> findArticleById(String id) {
+        return reactiveRedisTemplate.opsForValue().get(REDIS_KEY + id);
     }
 
     @Override
-    public Flux<Article> findAll() {
-        return reactiveRedisTemplate.keys(REDIS_KEY + "*").flatMap(key -> reactiveRedisTemplate.opsForValue().get(key).map(object -> (Article) object));
+    public Flux<Object> findAll() {
+        return reactiveRedisTemplate.keys(REDIS_KEY + "*").flatMap((String key) -> reactiveRedisTemplate.opsForValue().get(key));
     }
 
 }

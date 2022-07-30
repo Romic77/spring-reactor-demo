@@ -4,6 +4,7 @@ import com.reactor.demo.domain.entity.Article;
 import com.reactor.demo.service.ReactiveRedisArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +28,12 @@ public class CustomerRedisController {
     }
 
     @GetMapping("/list")
-    public Flux<Article> list() {
+    public Flux<Object> list() {
         return reactiveRedisArticleService.findAll();
+    }
+
+    @GetMapping("/article/{id}")
+    public Mono<Object> findById(@PathVariable("id") String id) {
+        return reactiveRedisArticleService.findArticleById(id);
     }
 }
