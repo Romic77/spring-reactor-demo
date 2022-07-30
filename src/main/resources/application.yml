@@ -66,6 +66,10 @@ spring:
           name-server: 127.0.0.1:9876
           # 不加, 会报错：Property 'group' is required - producerGroup
           group: rocketmq-group
+        bindings:
+          topic-consumer2: # 与 spring.cloud.stream.bindings.topic-consumer2对应上
+            consumer:
+              subscription: myTag||look # 基于 Tag 订阅，多个 Tag 使用 || 分隔，默认为空
       # 定义name为output的binding
       bindings:
         topic-producer:
@@ -73,11 +77,14 @@ spring:
           content-type: application/json
           group: test-topic-producer
         # 定义name为input的binding
-        topic-consumer:
+        topic-consumer1:
           destination: test-topic
           content-type: application/json
-          group: test-group-comsumer
-
+          group: test-group-comsumer1
+        topic-consumer2:
+          destination: test-topic
+          content-type: application/json
+          group: test-group-comsumer2
 
 
 
@@ -88,3 +95,4 @@ logging:
     org.hibernate.engine.QueryParameters: debug
     org.hibernate.engine.query.HQLQueryPlan: debug
     org.hibernate.type.descriptor.sql.BasicBinder: trace
+    com.alibaba.cloud.stream.binder.rocketmq: info

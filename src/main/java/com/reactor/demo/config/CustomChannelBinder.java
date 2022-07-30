@@ -21,13 +21,13 @@ public interface CustomChannelBinder {
      * 接收消息1(消费者1)
      * 绑定配置中的channel名称
      */
-    @Input("topic-consumer")
+    @Input("topic-consumer1")
     MessageChannel testInputChannel1();
 
     /**
      * 接收消息2(消费者2)
      * 绑定配置中的channel名称
      */
-    /*@Input("Topic-test2")
-    MessageChannel testInputChannel2();*/
+    @Input("topic-consumer2")
+    MessageChannel testInputChannel2();
 }
