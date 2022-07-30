@@ -58,9 +58,28 @@ spring:
         max-wait: -1 #连接池最大阻塞等待时间（使用负值表示没有限制）
   main:
     allow-bean-definition-overriding: true
-#    cluster:
-#      nodes: 10.4.5.139:47001,10.4.5.139:47002,10.4.5.139:47003,10.4.5.104:47004,10.4.5.104:47005,10.4.5.104:47006
-#      max-redirects: 3
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          # 配置rocketmq的nameserver地址
+          name-server: 127.0.0.1:9876
+          # 不加, 会报错：Property 'group' is required - producerGroup
+          group: rocketmq-group
+      # 定义name为output的binding
+      bindings:
+        topic-producer:
+          destination: test-topic
+          content-type: application/json
+          group: test-topic-producer
+        # 定义name为input的binding
+        topic-consumer:
+          destination: test-topic
+          content-type: application/json
+          group: test-group-comsumer
+
+
+
 
 logging:
   level:
