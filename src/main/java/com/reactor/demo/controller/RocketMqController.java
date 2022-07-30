@@ -40,7 +40,7 @@ public class RocketMqController {
 
     /**
      * 生产带tag的消息
-     * 需要在配置文件中配置:spring.cloud.stream.rocketrmq.bindings.消费者名称.consumer.subscription=配置tag
+     * 需要在配置文件中配置:spring.cloud.stream.rocketmq.bindings.消费者名称.consumer.subscription=配置tag
      *
      * @param msg
      * @return void
