@@ -2,6 +2,7 @@ package com.reactor.demo.service;
 
 import com.reactor.demo.domain.entity.Article;
 import com.reactor.demo.repository.ArticleReactiveRedisRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import reactor.core.publisher.Mono;
  * @date 2022-07-30
  * @description
  */
+@Slf4j
 @Service
 public class ReactiveRedisArticleService implements ArticleReactiveRedisRepository {
     @Autowired

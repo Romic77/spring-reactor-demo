@@ -86,8 +86,6 @@ spring:
           content-type: application/json
           group: test-group-comsumer2
 
-
-
 logging:
   level:
     org.springframework.web: error
