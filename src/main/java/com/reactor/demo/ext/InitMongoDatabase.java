@@ -16,6 +16,13 @@ public class InitMongoDatabase implements CommandLineRunner {
     @Autowired
     private ReactiveMongoTemplate reactiveMongoTemplate;
 
+    /**
+     * 初始化mongodb的数据
+     *
+     * @return void
+     * @author romic
+     * @date 2022/8/2 09:54
+     */
     @Override
     public void run(String... args) throws Exception {
         reactiveMongoTemplate.dropCollection(Article.class);
